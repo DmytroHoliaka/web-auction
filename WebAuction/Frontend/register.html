@@ -29,28 +29,36 @@
 
     <div class="reg-form-bg">
         <div class="reg-form-container">
-            <form action="">
+            <form id="registrationForm" action="/Account/Register" method="post">
                 <div>
-                    <h3 class="welcome">Create an account</h1>
+                    <h3 class="welcome">Create an account</h3>
                 </div>
+
                 <p class="field">Email:</p>
-                <input name="email" type="email" autocomplete="off">
+                <input name="email" type="email" autocomplete="off" required>
+
                 <p class="field">Username:</p>
-                <input name="username" type="text" autocomplete="off">
+                <input name="username" type="text" autocomplete="off" required>
+
                 <p class="field">First Name:</p>
-                <input name="first_name" type="text" autocomplete="off">
+                <input name="first_name" type="text" autocomplete="off" required>
+
                 <p class="field">Last Name:</p>
-                <input name="last_name" type="text" autocomplete="off">
+                <input name="last_name" type="text" autocomplete="off" required>
+
                 <p class="field">Password:</p>
-                <input name="password" type="text" autocomplete="off">
+                <input name="password" type="text" autocomplete="off" required>
+
                 <div class="log-in-container">
                     <button class="log-in-button" onclick="">Register</button>
                 </div>
+
                 <div class="need-acc">
                     <p>Already have an account?</p>
                     <a href="sign_in.html" class="switch-register">Sign in</a>
                 </div>
-                
+
+                <div id="signInMessage"></div>
             </form>
         </div>
     </div>
@@ -58,6 +66,8 @@
     <footer class="footer">
         <p> Join our initiative to share good in the world. Register to view numerous auctions and create your own.</p>            
     </footer>
+
+    <script src="JavaScript/registrationForm.js"></script>
 
 </body>
 </html>
