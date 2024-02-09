@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bet page</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/body.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/bet/photos.css">
+    <link rel="stylesheet" href="./css/edit/baseInfo.css">
+    <link rel="stylesheet" href="./css/edit/editor.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="header">
+            <ul>
+                <li>
+                    <a href="index.html">Auction</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="photos">
+            <form name="editName" class="edit-auctionName">
+                <input type="text" name="newName" value="Headphones">
+            </form>
+            <div class="auctionPhotos">
+                <div class="thumbnails">
+                    <img class="currentPhotoThumbnail" src="Headphones/1.jpg">
+                    <img src="Headphones/2.jpg">
+                    <img src="Headphones/3.jpg">
+                    <img src="Headphones/4.jpg">
+                </div>
+                <div class="edit-photo">
+                    <img class="currentPhoto" src="Headphones/1.jpg">
+                </div>
+            </div>
+        </div>
+        <main class="baseInfo">
+            <div class="descriptionEdit">
+                <h2>
+                    Description
+                </h2>
+                <form name="editDescription" class="edit-description"
+                    onsubmit="event.preventDefault(); alert('Saved!')">
+                    <textarea>
+                    Тут буде текст опису
+                    </textarea>
+                    <button type="submit" name="newDescription">
+                        <img src="Icons/saveIcon.png" alt="save">
+                    </button>
+                </form>
+            </div>
+            <div class="auctionDetails">
+                <div class="auctionDetail">
+                    <div class="detailText">
+                        Starting
+                    </div>
+                    <div class="moneyText" id="sbid">
+                        12.5 $
+                    </div>
+                </div>
+                <div class="auctionDetail">
+                    <div class="detailText">
+                        Deadline
+                    </div>
+                    <form name="editDeadline" class="edit-deadline">
+                        <input type="date" name="newDeadline" value="2024-02-10" 
+                            min="2024-02-11" max="2025-02-10" class="deadlineText"> 
+                         <!-- min - tomorrow
+                         max - in a year -->
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="jsForAnimation.js"></script>
+</body>
+
+</html>

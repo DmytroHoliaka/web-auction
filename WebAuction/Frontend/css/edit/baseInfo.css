@@ -1,0 +1,70 @@
+.baseInfo {
+    height: 693px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 34px 0;
+    box-sizing: border-box;
+}
+
+.descriptionEdit{
+    max-height: 520px;
+    flex-grow: 1;
+}
+
+.baseInfo h2 {
+    font-family: 'Jost';
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+}
+
+.baseInfo p {
+    font-family: 'Jost';
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+}
+
+.auctionDetails {
+    height: 106px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+}
+
+.auctionDetail{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    max-height: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.auctionDetail>*{
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    min-height: 0;
+}
+
+.detailText{
+    font-family: 'Jost';
+    font-size: 30px;
+}
+
+.moneyText{
+    color: #387144;
+    font-family: 'Jomhuria';
+    font-size: 70px;
+    line-height: 0.1;
+    padding-top: 13px;
+}
+
+.deadlineText{
+    color: #B63E3E;
+    font-family: 'Jomhuria';
+    font-size: 70px;
+    line-height: 0.1;
+    padding-top: 13px;
+}
