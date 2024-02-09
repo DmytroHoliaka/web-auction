@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    width: 900px;
+    height: 1400px;
+
+}
