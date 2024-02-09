@@ -42,9 +42,15 @@ namespace WebAuction.Backend.Database.Context
                           .HasForeignKey(b => b.UserId)
                           .OnDelete(DeleteBehavior.Cascade));
 
+            builder.Property(u => u.Email).HasMaxLength(32);
+            builder.Property(u => u.Username).HasMaxLength(64);
             builder.Property(u => u.FirstName).HasMaxLength(64);
             builder.Property(u => u.LastName).HasMaxLength(64);
             builder.Property(u => u.Password).HasMaxLength(32);
+
+            builder.HasIndex(u => u.Email).IsUnique();
+            builder.HasIndex(u => u.Username).IsUnique();
+
             builder.ToTable("Users");
         }
 

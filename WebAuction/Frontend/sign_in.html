@@ -28,23 +28,24 @@
 
     <div class="form-bg">
         <div class="form-container">
-            <form action="">
+            <form id="signInForm" action="/Account/SignIn" method="post">
                 <div>
-                    <h3 class="welcome">Welcome back!</h1>
+                    <h3 class="welcome">Welcome back!</h3>
                 </div>
                 <p class="field">Email:</p>
                 <input name="email" type="email" autocomplete="off">
                 <p class="field">Password:</p>
                 <input name="password" type="text"autocomplete="off">
                 <div class="log-in-container">
-                    <button class="log-in-button" onclick="">Log in</button>
+                    <button type="button" class="log-in-button">Log in</button>
                 </div>
                 <div class="need-acc">
                     <p>Need an account?</p>
                     <a href="register.html" class="switch-register">Register</a>
                 </div>
-                
             </form>
+
+            <div id="signInMessage"></div>
         </div>
     </div>
 
@@ -52,5 +53,6 @@
         <p> Join our initiative to share good in the world. Register to view numerous auctions and create your own.</p>            
     </footer>
 
+    <script src="JavaScript/signIn.js"></script>
 </body>
 </html>
