@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bet page</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/body.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/bet/photos.css">
+    <link rel="stylesheet" href="./css/bet/baseInfo.css">
+    <link rel="stylesheet" href="./css/bet/bidInfo.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="header">
+            <ul>
+                <li>
+                    <a href="index.html">Auction</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="photos">
+            <h1 class="auctionName">
+                Modern sculpture
+            </h1>
+            <div class="auctionPhotos">
+                <div class="thumbnails">
+                    <img class="currentPhotoThumbnail" src="Sculptures/1.jpg">
+                    <img src="Sculptures/2.jpg">
+                    <img src="Sculptures/3.jpg">
+                    <img src="Sculptures/3.jpg">
+                    <img src="Sculptures/3.jpg">
+                </div>
+                <img class="currentPhoto" src="Sculptures/1.jpg">
+            </div>
+        </div>
+        <main class="mainInfo">
+            <div class="baseInfo">
+                <p class="description">
+                    This image is a black ceramic plate with orange artwork in the style
+                    of ancient Greece. It shows two human figures and a helmet in a scene
+                    that could be related to war or mythology. The figures are censored
+                    to respect their privacy. The plate has a geometric border and two
+                    handles on the sides.
+                </p>
+                <div class="auctionDetails">
+                    <div class="auctionDetail">
+                        <div class="detailText">
+                            Starting
+                        </div>
+                        <div class="moneyText" id="sbid">
+                            12.5 $
+                        </div>
+                    </div>
+                    <div class="auctionDetail">
+                        <div class="detailText">
+                            Deadline
+                        </div>
+                        <div class="deadlineText">
+                            10.02.2024
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bidInfo">
+                <div class="userBid">
+                    <p>
+                        Make your bid!
+                    </p>
+                    <form name="bidForm" class="bidForm">
+                        <div>
+                            <label for="bid">$</label>
+                            <input name="bid" type="number" min="12.5" step="0.1" placeholder="26">
+                        </div>
+                        <button type="submit" class="btn-image">
+                            <img src="Icons/bidIcon.svg" alt="do bid" class="bidIcon">
+                        </button>
+                    </form>
+                </div>
+                <div class="bidHistory">
+                    <p>
+                        History
+                    </p>
+                    <div class="ht-wrapper">
+                        <table id="history">
+                            <tr>
+                                <th>Username</th>
+                                <th>Bid</th>
+                                <th>Date</th>
+                            </tr>
+                            <tr>
+                                <th>Ivan</th>
+                                <th class="ht-money">25 $</th>
+                                <th class="ht-date">06.03.2024 12:53</th>
+                            </tr>
+                            <tr>
+                                <th>Peter</th>
+                                <th class="ht-money">23 $</th>
+                                <th class="ht-date">05.03.2024 11:24</th>
+                            </tr>
+                            <tr>
+                                <th>Steve</th>
+                                <th class="ht-money">21 $</th>
+                                <th class="ht-date">04.03.2024 16:54</th>
+                            </tr>
+                            <tr>
+                                <th>Steve</th>
+                                <th class="ht-money">21 $</th>
+                                <th class="ht-date">04.03.2024 16:54</th>
+                            </tr>
+                            <tr>
+                                <th>Steve</th>
+                                <th class="ht-money">21 $</th>
+                                <th class="ht-date">04.03.2024 16:54</th>
+                            </tr>
+                            <tr>
+                                <th>Steve</th>
+                                <th class="ht-money">21 $</th>
+                                <th class="ht-date">04.03.2024 16:54</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <button id="viewHistory" class="btn-image">
+                        <img src="Icons/viewHistory.svg" alt="view history">
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

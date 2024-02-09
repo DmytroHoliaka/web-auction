@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Inria";
+    src: url("Fonts/Inria/InriaSerif-Regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Inria";
+    src: url("Fonts/Inria/InriaSerif-Bold.otf") format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Jost";
+    src: url("Fonts/Jost/static/Jost-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Jomhuria";
+    src: url("Fonts/Jomhuria/Jomhuria-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
