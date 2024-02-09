@@ -24,7 +24,7 @@
 .nav-sign-in {
     padding: 23px;
     padding-left:47px;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); /* Horizontal offset, vertical offset, blur radius, shadow color */
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); 
 }
 .field{
     font-family: 'Inria Serif', serif;
