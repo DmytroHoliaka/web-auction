@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: 'Jost', sans-serif; 
+    font-weight: 300;
+}
+.main-text {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.page-heading {
+    font-family: 'Inria Serif', serif;
+    font-size: 65px;
+}
+.page-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 19px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding-top:25px;
+    padding-bottom:25px;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+a:visited {
+    color: inherit;
+}
