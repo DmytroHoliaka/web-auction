@@ -1,0 +1,17 @@
+.reg-form-container {
+    width: 500px;
+    height: 730px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    flex-direction: column;
+}
+.reg-form-bg {
+    width: 100%;
+    background-color: #BACDBE;
+    height: 880px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

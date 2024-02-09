@@ -1,0 +1,66 @@
+.auctions {
+    width: 100%;
+    background-color: #BACDBE;
+    padding-bottom: 40px; 
+}
+.sort-button {
+    text-align: right;
+    padding: 5px;
+}
+.sort-container {
+    text-align: right;
+    padding-top: 10px;
+    padding-right:5px;
+    padding-bottom: 25px;
+}
+.next-page-button {
+    text-align: center;
+    padding: 5px;
+}
+.description {
+    margin: 3px;
+    text-align: center;
+}
+
+.next-page-container {
+    padding: 15px; 
+    display: flex;
+    justify-content: center;
+}
+
+.next-page-button {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    color: rgb(70, 107, 78); 
+    background-color: rgb(255, 255, 255); 
+    border: none; 
+    border-radius: 10px; 
+    padding: 7px 17px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5); 
+    cursor: pointer;
+}
+
+.first {
+    margin-top: 7px;
+    margin-bottom: 3px;
+    font-family: 'Inria Serif', serif;
+    font-size: 20px;
+}
+.last {
+    margin-top: 3px;
+    margin-bottom: 25px;
+}
+.row-1, .row-2, .row-3{
+    display: flex;
+    justify-content: space-around;
+}
+.product {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Creates a square aspect ratio */
+    overflow: hidden;
+}
+img {
+    width:250px;
+    height:250px;
+}
