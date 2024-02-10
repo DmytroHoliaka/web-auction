@@ -1,0 +1,40 @@
+.add-photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.add-photo>*{
+    min-width: 0;
+    min-height: 0;
+}
+
+.add-photo>form>div{
+    font-family: 'Inria';
+    font-size: 50px;
+    color: #808080;
+}
+
+.add-photo img{
+    max-height: 300px;
+    max-width: 300px;
+    align-self: center;
+}
+
+.add-photo>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-photo>form label{
+    width: fit-content;
+    height: 100%;
+    display: block;
+} 
+
+.add-photo>form input{
+    display: none;
+}

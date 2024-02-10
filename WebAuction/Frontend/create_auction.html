@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bet page</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/body.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/bet/photos.css">
+    <link rel="stylesheet" href="./css/edit/baseInfo.css">
+    <link rel="stylesheet" href="./css/edit/editor.css">
+    <link rel="stylesheet" href="./css/create/photos.css">
+    <link rel="stylesheet" href="./css/create/auctionDetails.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="header">
+            <ul>
+                <li>
+                    <a href="index.html">Auction</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="photos">
+            <form name="editName" class="edit-auctionName">
+                <input type="text" name="newName" placeholder="Auction name">
+            </form>
+            <div class="auctionPhotos">
+                <div class="thumbnails"></div>
+                <div class="add-photo">
+                    <form action="/upload" name="addPhoto">
+                        <input type="file" id="addPhoto" accept="image/*">
+                        <label for="addPhoto">
+                            <img class="currentPhoto" src="Icons/plus.png" alt="add photo">
+                        </label>
+                        <div>
+                            Images are necessary
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="thumbnails">
+                    <img class="currentPhotoThumbnail" src="Headphones/1.jpg">
+                    <img src="Headphones/2.jpg">
+                    <img src="Headphones/3.jpg">
+                    <img src="Headphones/4.jpg">
+                </div>
+                <div class="edit-photo">
+                    <img class="currentPhoto" src="Headphones/1.jpg">
+                </div> -->
+            </div>
+        </div>
+        <main class="baseInfo">
+            <div class="descriptionEdit">
+                <h2>
+                    Description
+                </h2>
+                <form name="editDescription" class="edit-description"
+                    onsubmit="event.preventDefault(); alert('Saved!')">
+                    <textarea placeholder="Describe your item..."></textarea>
+                    <button type="submit" name="newDescription">
+                        <img src="Icons/saveIcon.png" alt="save">
+                    </button>
+                </form>
+            </div>
+            <div class="auctionDetails">
+                <div class="auctionDetail">
+                    <div class="detailText">
+                        Starting
+                    </div>
+                    <form name="editStartingBid" class="edit-bid">
+                        <input type="number" min="1" max="100000" name="newBid"
+                            placeholder="1 $" class="moneyText">
+                    </form>
+                </div>
+                <div class="auctionDetail">
+                    <div class="detailText">
+                        Deadline
+                    </div>
+                    <form name="editDeadline" class="edit-deadline">
+                        <input type="date" name="newDeadline" value="2024-02-10" 
+                            min="2024-02-11" max="2025-02-10" class="deadlineText"> 
+                         <!-- min - tomorrow
+                         max - in a year -->
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="JavaScript/jsForAnimation.js"></script>
+</body>
+
+</html> 
