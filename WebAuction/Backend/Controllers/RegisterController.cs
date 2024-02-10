@@ -23,7 +23,7 @@ namespace WebAuction.Backend.Controllers
 
             if (error != string.Empty)
             {
-                return Content(error);
+                return Json(new {success = false, message = error});
             }
 
             await _dm.InsertUserAsync(form["email"],
@@ -32,7 +32,7 @@ namespace WebAuction.Backend.Controllers
                                       form["last_name"],
                                       form["password"]);
             
-            return Redirect("/");
+            return Json(new { success = true, redirectUrl = "/" });
         }
     }
 }
