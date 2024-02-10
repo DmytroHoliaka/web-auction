@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAuction.Backend.Database.Context;
 
@@ -11,9 +12,11 @@ using WebAuction.Backend.Database.Context;
 namespace WebAuction.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20240210103921_RenameBetTime")]
+    partial class RenameBetTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,25 +144,6 @@ namespace WebAuction.Migrations
                         .HasFilter("[Username] IS NOT NULL");
 
                     b.ToTable("Users", (string)null);
-                });
-
-            modelBuilder.Entity("WebAuction.Backend.Database.Views.AuctionHistory", b =>
-                {
-                    b.Property<Guid>("BetId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Bid")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable((string)null);
-
-                    b.ToView(null, (string)null);
                 });
 
             modelBuilder.Entity("WebAuction.Backend.Database.Views.AuctionSummary", b =>

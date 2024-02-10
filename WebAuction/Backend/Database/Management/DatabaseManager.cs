@@ -1,5 +1,8 @@
-﻿using WebAuction.Backend.Database.Context;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using WebAuction.Backend.Database.Context;
 using WebAuction.Backend.Database.Entities;
+using WebAuction.Backend.Database.Views;
 
 namespace WebAuction.Backend.Database.Management
 {
@@ -32,6 +35,17 @@ namespace WebAuction.Backend.Database.Management
             await _db.SaveChangesAsync();
 
             return user.Id;
+        }
+
+        public async Task<List<AuctionHistory>> GetAuctionHistory(Guid AuctionId)
+        {
+            SqlParameter sqlParameter = new("@AuctionId", AuctionId);
+
+            List<AuctionHistory> history = await _db.Set<AuctionHistory>()
+                .FromSqlRaw("SELECT * FROM GetAuctionHistory(@AuctionId)", sqlParameter)
+                .ToListAsync();
+
+            return history;
         }
     }
 }

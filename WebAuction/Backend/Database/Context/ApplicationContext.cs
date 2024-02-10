@@ -12,6 +12,7 @@ namespace WebAuction.Backend.Database.Context
         public DbSet<Bet> Bets => Set<Bet>();
         public DbSet<User> Users => Set<User>();
         public DbSet<AuctionSummary> AuctionSummaries => Set<AuctionSummary>();
+        public DbSet<AuctionHistory> AuctionHistories => Set<AuctionHistory>();
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) :
             base(options)
@@ -26,6 +27,7 @@ namespace WebAuction.Backend.Database.Context
             modelBuilder.Entity<Bet>(ConfigureBet);
             modelBuilder.Entity<Image>(ConfigureImage);
             modelBuilder.Entity<AuctionSummary>(ConfigureAuctionSummary);
+            modelBuilder.Entity<AuctionHistory>(ConfigureAuctionHistory);
         }
 
         private void ConfigureUser(EntityTypeBuilder<User> builder)
@@ -89,6 +91,13 @@ namespace WebAuction.Backend.Database.Context
             builder.ToView("AuctionSummary");
             builder.Property(s => s.StartingBid).HasColumnType("decimal(10,2)");
             builder.Property(s => s.CurrentBid).HasColumnType("decimal(10,2)");
+        }
+
+        private void ConfigureAuctionHistory(EntityTypeBuilder<AuctionHistory> builder)
+        {
+            builder.HasNoKey();
+            builder.ToView(null);
+            builder.Property(h => h.Bid).HasColumnType("decimal(10,2)");
         }
     }
 }
