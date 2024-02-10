@@ -6,5 +6,7 @@
         public decimal StartingBid { get; set; }
         public decimal CurrentBid { get; set; }
         public DateTime AuctionEnds { get; set; }
+        
+        public Guid AuctionId { get; set; }
     }
 }
