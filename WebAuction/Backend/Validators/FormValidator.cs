@@ -44,12 +44,12 @@
                 return "Incorrect password";
             }
 
-            if (await _databaseValidator.IsEmailExists(form["email"]) == true)
+            if (await _databaseValidator.IsEmailExists(form["email"]!) == true)
             {
                 return "Such email already exists";
             }
 
-            if (await _databaseValidator.IsUsernameExists(form["username"]) == true)
+            if (await _databaseValidator.IsUsernameExists(form["username"]!) == true)
             {
                 return "Such username already exists";
             }
@@ -57,10 +57,26 @@
             return string.Empty;
         }
 
-        public bool IsSignInFormValid(IFormCollection? form)
+        public async Task<string> GetSignInFormError(IFormCollection? form)
         {
-            // ToDo: Implement and add into controller
-            return true;
+            if (form is null)
+            {
+                return "Input instance is null";
+            }
+
+            if (_dataValidator.IsEmailValid(form["email"]) == false)
+            {
+                return "Incorrect email format";
+            }
+
+            if (_dataValidator.IsPasswordValid(form["password"]) == false)
+            {
+                return "Incorrect password format";
+            }
+
+            string error = await _databaseValidator.GetUserSignInError(form["email"]!, form["password"]!);
+
+            return error;
         }
     }
 }
