@@ -4,6 +4,10 @@
     padding-bottom: 40px; 
 }
 
+.images-grid {
+    width:1330px;
+    margin: 0 auto;
+}
 .dropbtn {
     background-color: white;
     color: rgb(0, 0, 0);
