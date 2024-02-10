@@ -2,13 +2,14 @@
 <html>
 
 <head>
-    <title>Bet page</title>
+    <title>Make your bid</title>
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/body.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/bet/photos.css">
     <link rel="stylesheet" href="./css/bet/baseInfo.css">
     <link rel="stylesheet" href="./css/bet/bidInfo.css">
+    <link rel="stylesheet" href="./css/thinScrollbar.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
                 Modern sculpture
             </h1>
             <div class="auctionPhotos">
-                <div class="thumbnails">
+                <div class="thumbnails thin-scrollbar">
                     <img class="currentPhotoThumbnail" src="Sculptures/1.jpg">
                     <img src="Sculptures/2.jpg">
                     <img src="Sculptures/3.jpg">
@@ -37,10 +38,16 @@
         </div>
         <main class="mainInfo">
             <div class="baseInfo">
-                <p class="description">
+                <p class="description thin-scrollbar">
                     This image is a black ceramic plate with orange artwork in the style
                     of ancient Greece. It shows two human figures and a helmet in a scene
                     that could be related to war or mythology. The figures are censored
+                    to respect their privacy. The plate has a geometric border and two
+                    to respect their privacy. The plate has a geometric border and two
+                    to respect their privacy. The plate has a geometric border and two
+                    to respect their privacy. The plate has a geometric border and two
+                    to respect their privacy. The plate has a geometric border and two
+                    to respect their privacy. The plate has a geometric border and two
                     to respect their privacy. The plate has a geometric border and two
                     handles on the sides.
                 </p>
@@ -71,7 +78,7 @@
                     <form name="bidForm" class="bidForm">
                         <div>
                             <label for="bid">$</label>
-                            <input name="bid" type="number" min="12.5" step="0.1" placeholder="26">
+                            <input name="bid" type="number" step="0.1" inputmode="numeric">
                         </div>
                         <button type="submit" class="btn-image">
                             <img src="Icons/bidIcon.svg" alt="do bid" class="bidIcon">
@@ -119,6 +126,16 @@
                                 <th class="ht-money">21 $</th>
                                 <th class="ht-date">04.03.2024 16:54</th>
                             </tr>
+                            <tr>
+                                <th>Steve</th>
+                                <th class="ht-money">21 $</th>
+                                <th class="ht-date">04.03.2024 16:54</th>
+                            </tr>
+                            <tr>
+                                <th>Steve</th>
+                                <th class="ht-money">21 $</th>
+                                <th class="ht-date">04.03.2024 16:54</th>
+                            </tr>
                         </table>
                     </div>
                     <button id="viewHistory" class="btn-image">
@@ -129,5 +146,7 @@
         </main>
     </div>
 </body>
-
+<script src="JavaScript/page_bet/autoBidValue.js"></script>
+<script src="JavaScript/page_bet/viewHistory.js"></script>
+<script src="JavaScript/generalPhotos.js"></script>
 </html>
