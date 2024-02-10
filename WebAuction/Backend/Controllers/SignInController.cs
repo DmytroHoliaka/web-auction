@@ -7,28 +7,24 @@ namespace WebAuction.Backend.Controllers
     [Route("Account")]
     public class SignInController : Controller
     {
-        private readonly DatabaseValidator _dv;
+        private readonly FormValidator _fv;
 
-        public SignInController(DatabaseValidator dv)
+        public SignInController(FormValidator fv)
         {
-            _dv = dv;
+            _fv = fv;
         }
 
         [HttpPost("SignIn")]
         public async Task<IActionResult> SignInUser(IFormCollection form)
         {
-            if (await _dv.IsEmailExists(form["email"]) == false)
+            string error = await _fv.GetSignInFormError(form);
+
+            if (error != string.Empty)
             {
-                return Content("Email does not exist.");
-            }
-            
-            if (await _dv.IsPasswordSuitable(form["email"]!, form["password"]) == false)
-            {
-                return Content("Password is incorrect.");
+                return Content(error);
             }
 
             Response.Cookies.Append("userStatus", "user");
-
             return Ok("Welcome back!");
         }
     }
