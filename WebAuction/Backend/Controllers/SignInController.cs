@@ -21,11 +21,11 @@ namespace WebAuction.Backend.Controllers
 
             if (error != string.Empty)
             {
-                return Content(error);
+                return Json(new { success = false, message = error });
             }
 
             Response.Cookies.Append("userStatus", "user");
-            return Ok("Welcome back!");
+            return Json(new { success = true, redirectUrl = form["returnUrl"] });
         }
     }
 }
