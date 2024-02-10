@@ -1,0 +1,25 @@
+.thin-scrollbar{
+    overflow-x: hidden;
+    padding-right: 8px;
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    position: relative;
+    left: 50px;
+    background-color: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(197, 197, 197, 10);
+    border-radius: 20px;
+    border: 0;
+}
+.thin-scrollbar::-webkit-scrollbar-corner{
+    background-color: transparent;
+}
