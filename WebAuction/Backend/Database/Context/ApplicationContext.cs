@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebAuction.Backend.Database.Entities;
+using WebAuction.Backend.Database.Views;
 
 namespace WebAuction.Backend.Database.Context
 {
@@ -10,6 +11,7 @@ namespace WebAuction.Backend.Database.Context
         public DbSet<Image> Photos => Set<Image>();
         public DbSet<Bet> Bets => Set<Bet>();
         public DbSet<User> Users => Set<User>();
+        public DbSet<AuctionSummary> AuctionSummaries => Set<AuctionSummary>();
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) :
             base(options)
@@ -23,6 +25,7 @@ namespace WebAuction.Backend.Database.Context
             modelBuilder.Entity<Auction>(ConfigureAuction);
             modelBuilder.Entity<Bet>(ConfigureBet);
             modelBuilder.Entity<Image>(ConfigureImage);
+            modelBuilder.Entity<AuctionSummary>(ConfigureAuctionSummary);
         }
 
         private void ConfigureUser(EntityTypeBuilder<User> builder)
@@ -78,6 +81,14 @@ namespace WebAuction.Backend.Database.Context
         {
             builder.Property(b => b.Name).HasMaxLength(32);
             builder.ToTable("Images");
+        }
+
+        private void ConfigureAuctionSummary(EntityTypeBuilder<AuctionSummary> builder)
+        {
+            builder.HasNoKey();
+            builder.ToView("AuctionSummary");
+            builder.Property(s => s.StartingBid).HasColumnType("decimal(10,2)");
+            builder.Property(s => s.CurrentBid).HasColumnType("decimal(10,2)");
         }
     }
 }
