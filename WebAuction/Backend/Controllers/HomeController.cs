@@ -16,10 +16,9 @@ namespace WebAuction.Backend.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetMainPage()
+        public IActionResult GetMainPage()
         {
-            string content = await System.IO.File.ReadAllTextAsync("Frontend/index.html");
-            return Content(content, "text/html");
+            return Redirect("/index.html");
         }
 
         [HttpGet("Data/AuctionSummaries")]
