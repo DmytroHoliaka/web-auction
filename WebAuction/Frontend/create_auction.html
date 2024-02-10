@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Bet page</title>
+    <title>Create auction</title>
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/thinScrollbar.css">
     <link rel="stylesheet" href="./css/calendarPicker.css">
@@ -38,10 +38,10 @@
                 </div> -->
                 <!--
                     When first image added:
-                    1. replace form.add-photo with inserted image (like in line 56)
-                    2. swap add-photo to edit-photo (class name)
-                    3. add thumbnails, that are comented above
-                    4. add js file with animation (line 89)
+                    1. replace form.add-photo with inserted image (line 57)
+                    2. swap add-photo to edit-photo class name (line 47)
+                    3. add thumbnails, that are comented (lines 36-38)
+                    4. add js file with animation (line 90)
                     When everything done -> delete these comments
                 -->
                 <div class="add-photo"> 
@@ -86,15 +86,14 @@
                         Deadline
                     </div>
                     <form name="editDeadline" class="edit-deadline">
-                        <input type="date" name="newDeadline" value="2024-02-10" 
-                            min="2024-02-11" max="2025-02-10" class="deadlineText"> 
-                         <!-- Федя, min - tomorrow, max - in a year -->
+                        <input type="date" name="newDeadline" class="deadlineText"> 
                     </form>
                 </div>
             </div>
         </main>
     </div>
-    <!--<script src="JavaScript/jsForAnimation.js"></script> -->
+    <script src="JavaScript/page_edit/deadlineBounds.js"></script>    
+    <!-- <script src="JavaScript/page_edit/photoEditors.js"></script> -->
 </body>
 
 </html> 
