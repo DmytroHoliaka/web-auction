@@ -15,6 +15,9 @@
 .header li{
     display: flex;
     align-items: center;
+}
+
+.header li:nth-child(1){
     padding: 0 0 0 90px;
 }
 
@@ -24,4 +27,8 @@
     font-weight: bold;
     color: black;
     text-decoration: none;
+}
+
+.header a:hover{
+    text-decoration: underline;
 }
