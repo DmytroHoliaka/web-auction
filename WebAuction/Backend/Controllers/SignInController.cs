@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebAuction.Backend.Database.Context;
+using WebAuction.Backend.Database.Management;
 using WebAuction.Backend.Validators;
 
 namespace WebAuction.Backend.Controllers
@@ -8,10 +8,12 @@ namespace WebAuction.Backend.Controllers
     public class SignInController : Controller
     {
         private readonly FormValidator _fv;
+        private readonly DatabaseManager _dm;
 
-        public SignInController(FormValidator fv)
+        public SignInController(FormValidator fv, DatabaseManager dm)
         {
             _fv = fv;
+            _dm = dm;
         }
 
         [HttpPost("SignIn")]
@@ -24,7 +26,10 @@ namespace WebAuction.Backend.Controllers
                 return Json(new { success = false, message = error });
             }
 
+            Guid userId = await _dm.GetUserId(form["email"]!);
+
             Response.Cookies.Append("userStatus", "user");
+            Response.Cookies.Append("userId", userId.ToString());
             return Json(new { success = true, redirectUrl = form["returnUrl"] });
         }
     }
