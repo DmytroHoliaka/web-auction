@@ -14,9 +14,12 @@ photoPicker.main = function(){
     }
     
     for(let child of thumbnails.children){
-        console.log(child);
-        child.onclick = thumbnailClick;
+        if (child.tagName === 'IMG') {
+            child.onclick = thumbnailClick;
+        }
     }
 }
 
-photoPicker.main();
+//photoPicker.main();
+
+export { photoPicker };
