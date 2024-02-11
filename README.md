@@ -26,7 +26,7 @@ npm install.
 ![alt text](/WebAuction/Images/main_page.png)
 
 ### Auction Details:
-![alt text](/WebAuction/Images/create.png)
+![alt text](/WebAuction/Images/bet_page.jpg)
 
 ### Auction Creation: 
 ![alt text](/WebAuction/Images/create-1.png)
