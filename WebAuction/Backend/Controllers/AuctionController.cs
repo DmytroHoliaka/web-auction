@@ -31,12 +31,15 @@ namespace WebAuction.Backend.Controllers
         [HttpPost("Create")]
         public async Task<IActionResult> CreateAuction([FromBody] AuctionView auction)
         {
-            await _dm.InsertAuctionAsync(auction.Name,
-                                         auction.Description,
-                                         auction.StartPrice,
-                                         auction.StartDate,
-                                         auction.EndDate,
-                                         auction.CreatorId);
+            Guid auctionId = await _dm.InsertAuctionAsync(auction.Name,
+                                                          auction.Description,
+                                                          auction.StartPrice,
+                                                          auction.StartDate,
+                                                          auction.EndDate,
+                                                          auction.CreatorId);
+
+            await _dm.InsertMainImage(auction.Images![0], auctionId);
+            await _dm.InsertAdditionalImages(auction!.Images.Skip(1).ToList(), auctionId);
 
             return Ok();
         }
