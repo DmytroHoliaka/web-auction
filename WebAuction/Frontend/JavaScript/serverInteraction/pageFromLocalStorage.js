@@ -20,4 +20,19 @@ pageFromLocalStorage.updatePhotos = () => {
     thumbnailsBlock.firstElementChild.setAttribute('class', 'currentPhotoThumbnail');
 }
 
+pageFromLocalStorage.getCurrentPhotoIndex = () => {
+    let thumbnailsBlock = document.querySelector('.thumbnails');
+    let curThumbnailIndex = 0;
+    let curElement = thumbnailsBlock.firstElementChild;
+    while (curThumbnailIndex < thumbnailsBlock.childElementCount) {
+        if (curElement.getAttribute('class')) {
+            console.log('Chosen thumb:', curThumbnailIndex);
+            break;
+        }
+        curElement = curElement.nextElementSibling;
+        curThumbnailIndex++;
+    }
+    return curThumbnailIndex;
+}
+
 export { pageFromLocalStorage }

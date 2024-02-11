@@ -1,6 +1,7 @@
 ﻿import { iconsHtml } from './iconsHtml.js'
 import { photoDeletion } from './deletePhoto.js'
 import { addPhoto } from './addPhoto.js'
+import { changePhoto } from './changePhoto.js'
 
 export function main() {
     let thumbnails = document.getElementsByClassName('thumbnails')[0];
@@ -23,6 +24,7 @@ export function main() {
         if (editPhoto.lastElementChild.tagName === 'FORM') return;
         editPhoto.appendChild(iconsHtml.editPhoto());
         photoDeletion.main();
+        changePhoto.main();
     })
     editPhoto.addEventListener("mouseleave", () => {
         if (editPhoto.lastElementChild.tagName !== 'FORM') return;
