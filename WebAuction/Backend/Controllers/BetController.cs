@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebAuction.Backend.Database.Management;
 using WebAuction.Backend.Database.Views;
+using WebAuction.Backend.RequestViews;
 
 namespace WebAuction.Backend.Controllers
 {

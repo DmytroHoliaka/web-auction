@@ -7,22 +7,18 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(form.action, {
             method: 'POST',
             body: formData,
-            headers: {
-                'Accept': 'text/plain'
-            }
         })
-            .then(response => {
-                if (response.ok && response.redirected) {
-                    window.location.href = response.url; 
-                } else {
-                    return response.text();
-                }
-            })
+            .then(response => response.json())
             .then(data => {
-                if (data) {
-                    document.getElementById('signInMessage').textContent = data;
+                if (data.success) {
+                    window.location.href = data.redirectUrl;
+                } else {
+                    document.getElementById("signInMessage").textContent = data.message;
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+                alert('An error occurred while processing your registration.');
+            });
     });
 });
