@@ -1,4 +1,6 @@
-﻿let photoDeletion = {}
+﻿import { pageFromLocalStorage } from "../serverInteraction/pageFromLocalStorage.js";
+
+let photoDeletion = {}
 
 photoDeletion.main = () => {
     let deleteBtn = document.querySelector('#deletePhoto');
@@ -6,17 +8,8 @@ photoDeletion.main = () => {
         event.preventDefault();
         let thumbnailsBlock = document.querySelector('.thumbnails');
         let currentPhoto = document.querySelector('.currentPhoto');
-
-        let curThumbnailIndex = 0;
-        let curElement = thumbnailsBlock.firstElementChild;
-        while (curThumbnailIndex < thumbnailsBlock.childElementCount) {
-            if (curElement.getAttribute('class')) {
-                console.log('Chosen thumb:', curThumbnailIndex);
-                break;
-            }
-            curElement = curElement.nextElementSibling;
-            curThumbnailIndex++;
-        }
+        let curThumbnailIndex = pageFromLocalStorage.getCurrentPhotoIndex();
+        let curElement = thumbnailsBlock.children[curThumbnailIndex];
 
         let newChosenThumbnail;
         if (curThumbnailIndex === 0) {
