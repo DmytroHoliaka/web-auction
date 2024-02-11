@@ -1,12 +1,10 @@
 let photoPicker = {};
 
 photoPicker.main = function(){
-    console.log(1);
     let thumbnails = document.getElementsByClassName('thumbnails')[0];
     let currentPhoto = document.getElementsByClassName('currentPhoto')[0];
     
     function thumbnailClick(event){
-        console.log(2);
         for(let child of thumbnails.children){
             child.removeAttribute('class');
         };

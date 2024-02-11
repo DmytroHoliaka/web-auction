@@ -33,9 +33,6 @@
                 <input type="text" name="newName" placeholder="Auction name">
             </form>
             <div class="auctionPhotos">
-                <!-- <div class="thumbnails thin-scrollbar">
-                    <img class="currentPhotoThumbnail" src="Headphones/1.jpg">
-                </div> -->
                 <!--
                     When first image added:
                     1. replace form.add-photo with inserted image (line 57)
@@ -54,7 +51,6 @@
                             Images are necessary
                         </div>
                     </form>
-                    <!-- <img class="currentPhoto" src="Headphones/1.jpg"> -->
                 </div>
             </div>
         </div>
@@ -63,8 +59,7 @@
                 <h2>
                     Description
                 </h2>
-                <form name="editDescription" class="edit-description"
-                    onsubmit="event.preventDefault(); alert('Saved!')">
+                <form name="editDescription" class="edit-description">
                     <textarea placeholder="Describe your item..."></textarea>
                     <button type="submit" name="newDescription">
                         <img src="Icons/saveIcon.png" alt="save">
@@ -77,7 +72,7 @@
                         Starting
                     </div>
                     <form name="editStartingBid" class="edit-bid">
-                        <input type="number" min="1" max="100000" name="newBid"
+                        <input type="number" min="1" max="999999" name="newBid"
                             placeholder="1 $" class="moneyText">
                     </form>
                 </div>
@@ -86,14 +81,16 @@
                         Deadline
                     </div>
                     <form name="editDeadline" class="edit-deadline">
-                        <input type="date" name="newDeadline" class="deadlineText"> 
+                        <input type="date" name="newDeadline" class="deadlineText"
+                               onkeydown="return false"> 
                     </form>
                 </div>
             </div>
         </main>
     </div>
+    <script id="clearLocalStorage" src="JavaScript/serverInteraction/create/clearLocalStorage.js"></script>    
     <script src="JavaScript/page_edit/deadlineBounds.js"></script>    
-    <!-- <script src="JavaScript/page_edit/photoEditors.js"></script> -->
+    <script type="module" src="JavaScript/serverInteraction/create/saveDataInLocalStorage.js"></script>    
 </body>
 
 </html> 
