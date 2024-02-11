@@ -1,4 +1,7 @@
-﻿namespace WebAuction.Backend.RequestViews
+﻿using System.Text.Json.Serialization;
+using System.Text.Json;
+
+namespace WebAuction.Backend.RequestViews
 {
     public class AuctionView
     {
@@ -8,6 +11,10 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public Guid CreatorId { get; set; }
-        public List<byte[]>? Images { get; set; }
+        public string? Images { get; set; }
+
+        [JsonIgnore]
+        public List<string>? ImagesList => string.IsNullOrEmpty(Images) ? null :
+            JsonSerializer.Deserialize<List<string>>(Images);
     }
 }
