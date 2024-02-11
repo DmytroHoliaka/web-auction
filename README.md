@@ -14,12 +14,14 @@ To run the application locally, follow these steps:
 
 * Clone this repository to your local machine.
 * Navigate to the project directory.
-* Install dependencies by running 
-
+* Using .NET CLI update database with the next command:
 ```
-npm install.
+dotnet ef database update
 ```
-
+* To run our project also use .NET CLI:
+```
+dotnet run
+```
 ## Visual Overview
 
 ### Main page:
