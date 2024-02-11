@@ -27,10 +27,13 @@ dataSaveInLocalStorage.main = function () {
     let deadlineInput = document.forms['editDeadline']['newDeadline'];
     deadlineInput.addEventListener('change', () => {
         let newDeadline = deadlineInput.value;
-        localStorage.setItem('startingBid', newDeadline);
+        localStorage.setItem('deadline', newDeadline);
     })
 
+    this.addPhoto();
+}
 
+dataSaveInLocalStorage.addPhoto = function () {
     let photoInput = document.querySelector('form[name="addPhoto"]>input');
     photoInput.addEventListener('change', async (event) => {
         let selectedPhoto = event.target.files[0];
@@ -82,3 +85,5 @@ dataSaveInLocalStorage.main = function () {
 }
 
 dataSaveInLocalStorage.main();
+
+export {dataSaveInLocalStorage }

@@ -2,6 +2,7 @@
 import { photoDeletion } from './deletePhoto.js'
 import { addPhoto } from './addPhoto.js'
 import { changePhoto } from './changePhoto.js'
+import { photoPicker } from '../generalPhotos.js'
 
 export function main() {
     let thumbnails = document.getElementsByClassName('thumbnails')[0];
@@ -12,6 +13,7 @@ export function main() {
         console.log('append');
         thumbnails.appendChild(iconsHtml.thumbnails());
         addPhoto.main();
+        photoPicker.main();
     })
     thumbnails.addEventListener("mouseleave", () => {
         if (thumbnails.lastElementChild.tagName === 'FORM') {
