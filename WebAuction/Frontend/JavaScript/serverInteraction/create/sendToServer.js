@@ -6,21 +6,37 @@ homeLink.addEventListener('click', (event) => {
         event.preventDefault();
         return;
     }
-    fetch('/Auction/Create?' +
-        `name=${localStorage.getItem('name')}&` +
-        `photos=${localStorage.getItem('photos')}&` +
-        `description=${localStorage.getItem('description')}&` +
-        `startingBid=${localStorage.getItem('startingBid')}&` +
-        `deadline=${localStorage.getItem('deadline')}&` +
-        `StartDate=${getCurrentDate()}&` +
-        `CreatorId=${getUserIdFromCookies()}`
-    ).then(response => response.json())
-        .then(data => console.log('Server: ', data))
-        .catch(error => {
-            alert(error);
-            event.preventDefault();
+
+    event.preventDefault();
+
+    const dataToSend = {
+        Name: localStorage.getItem('name'),
+        Description: localStorage.getItem('description'),
+        StartPrice: localStorage.getItem('startingBid'),
+        StartDate: getCurrentDate(),
+        EndDate: localStorage.getItem('deadline'),
+        CreatorId: getUserIdFromCookies(),
+        Images: localStorage.getItem('photos'),
+    };
+
+    fetch("Auction/Create", {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend)
+    })
+        .then(response => {
+            window.location.href = '/index.html';
+            alert("Your lot was successfully added");
         })
-})
+        .catch(error => {
+            window.location.href = '/index.html';
+            console.error('There was a problem with your fetch operation:', error.message || 'Unknown error');
+            alert('An error occurred while processing your request.');
+        });
+});
+
 
 function isDataEntered() {
     if (localStorage.getItem('name') === null) {
