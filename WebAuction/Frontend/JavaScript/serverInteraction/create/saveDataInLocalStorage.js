@@ -27,7 +27,7 @@ dataSaveInLocalStorage.main = function () {
     let deadlineInput = document.forms['editDeadline']['newDeadline'];
     deadlineInput.addEventListener('change', () => {
         let newDeadline = deadlineInput.value;
-        localStorage.setItem('startingBid', newDeadline);
+        localStorage.setItem('deadline', newDeadline);
     })
 
 

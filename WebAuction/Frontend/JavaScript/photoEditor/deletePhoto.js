@@ -7,6 +7,11 @@ photoDeletion.main = () => {
     deleteBtn.onclick = (event) => {
         event.preventDefault();
         let thumbnailsBlock = document.querySelector('.thumbnails');
+
+        if (thumbnailsBlock.children.length == 1) {
+            //
+        }
+
         let currentPhoto = document.querySelector('.currentPhoto');
         let curThumbnailIndex = pageFromLocalStorage.getCurrentPhotoIndex();
         let curElement = thumbnailsBlock.children[curThumbnailIndex];
