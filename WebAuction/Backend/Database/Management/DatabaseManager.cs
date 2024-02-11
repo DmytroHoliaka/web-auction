@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WebAuction.Backend.Database.Context;
 using WebAuction.Backend.Database.Entities;
 using WebAuction.Backend.Database.Views;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebAuction.Backend.Database.Management
 {
@@ -101,7 +102,7 @@ namespace WebAuction.Backend.Database.Management
         public decimal GetMaxBet(Guid auctionId)
         {
             bool hasBets = _db.Bets.Any(b => b.AuctionId == auctionId);
-            
+
             if (hasBets == false)
             {
                 return 0;
@@ -112,6 +113,64 @@ namespace WebAuction.Backend.Database.Management
                                     .Select(b => b.Price)
                                     .Max();
             return maxPrice;
+        }
+
+        public async Task<Guid> InsertAuctionAsync(string? name,
+                                                   string? description,
+                                                   decimal startPrice,
+                                                   DateTime startDate,
+                                                   DateTime endDate,
+                                                   Guid creatorId)
+        {
+            Auction auction = new()
+            {
+                Id = Guid.NewGuid(),
+                Name = name,
+                Description = description,
+                StartPrice = startPrice,
+                StartDate = startDate,
+                EndDate = endDate,
+                CreatorId = creatorId,
+            };
+
+            await _db.Auctions.AddAsync(auction);
+            await _db.SaveChangesAsync();
+
+            return auction.Id;
+        }
+
+        public async Task<Guid> InsertMainImage(byte[] imageData, Guid auctionId)
+        {
+            Image image = new()
+            {
+                Id = Guid.NewGuid(),
+                Data = imageData,
+                IsMain = true,
+                AuctionId = auctionId,
+            };
+
+            await _db.Photos.AddAsync(image);
+            await _db.SaveChangesAsync();
+
+            return image.Id;
+        }
+
+        public async Task InsertAdditionalImages(List<byte[]> imageDataSet, Guid auctionId)
+        {
+            foreach (byte[] imageData in imageDataSet)
+            {
+                Image image = new()
+                {
+                    Id = Guid.NewGuid(),
+                    Data = imageData,
+                    IsMain = false,
+                    AuctionId = auctionId,
+                };
+
+                await _db.Photos.AddAsync(image);
+            }
+
+            await _db.SaveChangesAsync();
         }
     }
 }

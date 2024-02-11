@@ -1,4 +1,4 @@
-﻿namespace WebAuction.Backend.Database.Views
+﻿namespace WebAuction.Backend.RequestViews
 {
     public class BidRequest
     {
