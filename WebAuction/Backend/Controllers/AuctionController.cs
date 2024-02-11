@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using WebAuction.Backend.Database.Management;
 using WebAuction.Backend.RequestViews;
 
@@ -31,15 +30,20 @@ namespace WebAuction.Backend.Controllers
         [HttpPost("Create")]
         public async Task<IActionResult> CreateAuction([FromBody] AuctionView auction)
         {
-            Guid auctionId = await _dm.InsertAuctionAsync(auction.Name,
-                                                          auction.Description,
-                                                          auction.StartPrice,
-                                                          auction.StartDate,
-                                                          auction.EndDate,
-                                                          auction.CreatorId);
+            List<string> base64Data = auction.ImagesList!.Select(d => d.Substring(d.IndexOf(",") + 1)).ToList();
 
-            await _dm.InsertMainImage(auction.Images![0], auctionId);
-            await _dm.InsertAdditionalImages(auction!.Images.Skip(1).ToList(), auctionId);
+            List<byte[]> images = base64Data.Select(d => Convert.FromBase64String(d)).ToList();
+
+            Guid auctionId = await _dm.InsertAuctionAsync(name: auction.Name,
+                                         description: auction.Description,
+                                         startPrice: auction.StartPrice,
+                                         startDate: auction.StartDate,
+                                         endDate: auction.EndDate,
+                                         creatorId: auction.CreatorId);
+
+            await _dm.InsertMainImage(images[0], auctionId);
+            await _dm.InsertAdditionalImages(images.Skip(1).ToList(), auctionId);
+
 
             return Ok();
         }
