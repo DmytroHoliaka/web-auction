@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Bet page</title>
+    <title>Edit auction</title>
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/thinScrollbar.css">
     <link rel="stylesheet" href="./css/calendarPicker.css">
@@ -71,16 +71,16 @@
                         Deadline
                     </div>
                     <form name="editDeadline" class="edit-deadline">
-                        <input type="date" name="newDeadline" value="2024-02-10" 
-                            min="2024-02-11" max="2025-02-10" class="deadlineText"> 
-                         <!-- min - tomorrow
-                         max - in a year -->
+                        <input type="date" name="newDeadline" class="deadlineText"> 
                     </form>
                 </div>
             </div>
         </main>
     </div>
-    <script src="JavaScript/editPage_photoEditAnimation.js"></script>
+    <script src="JavaScript/page_edit/photoEditors.js"></script>
+    <script src="JavaScript/page_edit/deadlineBounds.js"></script>
+    <script src="JavaScript/page_edit/textareaContent.js"></script>
+    <script src="JavaScript/generalPhotos.js"></script>
 </body>
 
 </html>
