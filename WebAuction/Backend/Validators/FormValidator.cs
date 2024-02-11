@@ -71,7 +71,7 @@
 
             if (_dataValidator.IsPasswordValid(form["password"]) == false)
             {
-                return "Incorrect password format";
+                return "The minimum password length is 8 characters";
             }
 
             string error = await _databaseValidator.GetUserSignInError(form["email"]!, form["password"]!);

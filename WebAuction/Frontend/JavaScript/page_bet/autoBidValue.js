@@ -3,7 +3,7 @@ let tableFirstRow = document.querySelector('table#history .ht-money');
 let biggestBidString;
 
 if (tableFirstRow === null){
-    biggestBidString = document.getElementById('sbid').innerHTML;
+    biggestBidString = document.getElementById('startingBid').innerHTML;
 }else{
     biggestBidString = tableFirstRow.innerHTML;
 }

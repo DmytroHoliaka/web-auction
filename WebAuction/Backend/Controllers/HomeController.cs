@@ -24,7 +24,17 @@ namespace WebAuction.Backend.Controllers
         [HttpGet("Data/AuctionSummaries")]
         public async Task<IActionResult> GetAllAuctions()
         {
-            List<AuctionSummary> auctions = await _db.AuctionSummaries.ToListAsync();
+            List<AuctionSummaryDTO> auctions = await _db.AuctionSummaries.Select(auction =>
+                new AuctionSummaryDTO()
+                {
+                    Base64Image = auction.Base64Image,
+                    ListingTitle = auction.ListingTitle,
+                    StartingBid = auction.StartingBid,
+                    CurrentBid = auction.CurrentBid,
+                    AuctionEnds = auction.AuctionEnds,
+                    AuctionId = auction.AuctionId,
+                }).ToListAsync();
+
             return Json(auctions);
         }
     }
